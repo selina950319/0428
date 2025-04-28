@@ -20,11 +20,12 @@ function draw() {
     overlayGraphics.clear();
     overlayGraphics.background(0); // 設定背景為黑色
 
-    // 每隔 20 繪製圓形，顏色取自 capture 的相對位置
+    // 每隔 20 繪製圓形，顏色為灰階
     for (let y = 0; y < overlayGraphics.height; y += 20) {
         for (let x = 0; x < overlayGraphics.width; x += 20) {
             let col = capture.get(x, y); // 從攝影機影像取得顏色
-            overlayGraphics.fill(col); // 設定圓形顏色
+            let gray = (col[0] + col[1] + col[2]) / 3; // 計算灰階值
+            overlayGraphics.fill(gray); // 設定圓形顏色為灰階
             overlayGraphics.noStroke();
             overlayGraphics.ellipse(x + 10, y + 10, 15, 15); // 繪製圓形，中心偏移 10
         }
