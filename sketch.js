@@ -25,6 +25,12 @@ function draw() {
     overlayGraphics.noStroke();
     overlayGraphics.ellipse(overlayGraphics.width / 2, overlayGraphics.height / 2, 100, 100); // 畫一個紅色圓形
 
+    // 在 overlayGraphics 上繪製文字
+    overlayGraphics.fill(0); // 黑色文字
+    overlayGraphics.textSize(32); // 設定文字大小
+    overlayGraphics.textAlign(CENTER, CENTER); // 文字置中對齊
+    overlayGraphics.text('這是我的影像', overlayGraphics.width / 2, overlayGraphics.height / 2 - 60); // 繪製文字
+
     // 將攝影機影像左右翻轉並顯示
     push();
     translate(width / 2, height / 2); // 將原點移到畫布中心
