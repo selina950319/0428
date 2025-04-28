@@ -21,9 +21,9 @@ function draw() {
 
     // 更新 overlayGraphics 的內容
     overlayGraphics.clear();
-    overlayGraphics.fill(255, 0, 0, 100); // 半透明紅色
+    overlayGraphics.fill(255, 0, 0, 100); // 半透明紅色背景
     overlayGraphics.noStroke();
-    overlayGraphics.ellipse(overlayGraphics.width / 2, overlayGraphics.height / 2, 100, 100); // 畫一個紅色圓形
+    overlayGraphics.rect(0, 0, overlayGraphics.width, overlayGraphics.height); // 填滿整個背景
 
     // 在 overlayGraphics 上繪製文字
     overlayGraphics.fill(0); // 黑色文字
