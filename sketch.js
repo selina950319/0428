@@ -14,10 +14,12 @@ function setup() {
 function draw() {
     background('#a9def9'); // 每次繪製時重設背景顏色
 
-    // 將攝影機影像顯示在畫布中間
-    let x = (width - capture.width) / 2;
-    let y = (height - capture.height) / 2;
-    image(capture, x, y, capture.width, capture.height);
+    // 將攝影機影像左右翻轉
+    push();
+    translate(width / 2, height / 2); // 將原點移到畫布中心
+    scale(-1, 1); // 水平翻轉影像
+    image(capture, -capture.width / 2, -capture.height / 2, capture.width, capture.height);
+    pop();
 }
 
 function windowResized() {
