@@ -28,26 +28,23 @@ function draw() {
           let r = capture.pixels[i];
           let g = capture.pixels[i + 1];
           let b = capture.pixels[i + 2];
-          let gray = (r + g + b) / 3; // 灰階
+          let brightnessValue = (r + g + b) / 3; // 亮度
 
-          // 根據灰階決定圓圈大小
-          let maxSize = 20; // 最大直徑
-          let diameter = map(gray, 0, 255, 0, maxSize);
+          // 根據亮度決定方塊大小
+          let maxSize = 20;
+          let size = map(brightnessValue, 0, 255, 0, maxSize);
 
-          overlayGraphics.noStroke();
-          overlayGraphics.fill(255); // 全部是白色圓圈
-          overlayGraphics.ellipse(x + 10, y + 10, diameter, diameter);
+          overlayGraphics.noFill();
+          overlayGraphics.stroke(r, g, b); // 方塊框線顏色 = 原色
+          overlayGraphics.strokeWeight(2); // 可以調整線條粗細
+          overlayGraphics.push();
+          overlayGraphics.translate(x + 10, y + 10);
+          overlayGraphics.rotate(PI / 4); // 旋轉45度變成菱形
+          overlayGraphics.rect(0, 0, size, size);
+          overlayGraphics.pop();
         }
       }
     }
-
-    // 顯示攝影機畫面（這裡可以不顯示原影像）
-    // push();
-    // translate(width / 2, height / 2);
-    // scale(-1, 1);
-    // image(capture, -capture.width / 2, -capture.height / 2, capture.width, capture.height);
-    // filter(GRAY);
-    // pop();
 
     // 顯示 overlay
     let x = (width - capture.width) / 2;
