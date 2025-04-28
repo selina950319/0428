@@ -3,7 +3,7 @@ let overlayGraphics;
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    background('#a9def9');
+    background(0); // 設定背景為黑色
 
     capture = createCapture(VIDEO);
     capture.size(windowWidth * 0.8, windowHeight * 0.8);
