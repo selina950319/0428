@@ -14,7 +14,7 @@ function setup() {
 }
 
 function draw() {
-    background('#a9def9');
+    background(0); // 設定背景為黑色
 
     // 更新 overlayGraphics 的內容
     overlayGraphics.clear();
@@ -31,11 +31,14 @@ function draw() {
         }
     }
 
-    // 顯示攝影機影像
+    // 顯示攝影機影像，轉換為灰階
     push();
     translate(width / 2, height / 2);
     scale(-1, 1);
     image(capture, -capture.width / 2, -capture.height / 2, capture.width, capture.height);
+
+    // 將攝影機影像轉換為灰階
+    filter(GRAY);
     pop();
 
     // 疊加 overlayGraphics
